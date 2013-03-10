@@ -39,7 +39,7 @@ Class User extends CI_Model
         
         function setEsl($username, $esl)
         {
-                $db = new PDO('sqlite:./application/db/flowershop');
+                $db = new PDO('sqlite:./application/db/deliveryDrivers');
                 $result = $db->query("UPDATE Users SET esl='" . $esl . "' WHERE username='" . $username . "';");
         }
      
@@ -52,7 +52,7 @@ Class User extends CI_Model
         
         function getALlEsls()
         {
-                $db = new PDO('sqlite:./application/db/flowershop');
+                $db = new PDO('sqlite:./application/db/deliveryDrivers');
                 $result = $db->query("SELECT esl FROM Users;");
                 
                 return $result;
