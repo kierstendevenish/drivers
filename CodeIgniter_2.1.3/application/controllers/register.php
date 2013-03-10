@@ -17,7 +17,6 @@ class Register extends CI_Controller {
 
         function save()
         {
-var_dump("here");
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $phone = $this->input->post('phone');

@@ -46,6 +46,7 @@ Class User extends CI_Model
         
         function register($username, $password, $phone, $esl = "")
         {
+var_dump("here2");
                 $db = new PDO('sqlite:./application/db/deliveryDrivers');
                 $result = $db->query("INSERT INTO Users VALUES ('" . $username . "','" . $password . "','" . $esl . "');");
         }
