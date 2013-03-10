@@ -13,6 +13,7 @@ class Register extends CI_Controller {
                 $this->load->view('templates/header');
 		$this->load->view('registration_view');
                 $this->load->view('templates/footer');
+var_dump("here");
 	}
 
         function save()
