@@ -36,14 +36,16 @@ class Delivery extends CI_Controller {
             foreach ($esls as $e)
             {
                 //make post request
-                /*$this->curl->post($e, array('shopAddr' => $shopAddr, 
+                /*$this->curl->post($e, array('_name' => 'delivery_ready',
+                                            '_domain' => 'rfq',
+                                            'shopAddr' => $shopAddr,
                                             'pickupTime' => $pickupTime,
                                             'deliveryAddr' => $deliveryAddr,
                                             'deliveryTime' => $deliveryTime));*/
-                $fields_str = 'shopAddr='.$shopAddr.'&pickupTime='.$pickupTime.'&deliveryAddr='.$deliveryAddr.'&deliveryTime='.$deliveryTime;
+                $fields_str = '_name' => 'delivery_ready', '_domain' => 'rfq', 'shopAddr='.$shopAddr.'&pickupTime='.$pickupTime.'&deliveryAddr='.$deliveryAddr.'&deliveryTime='.$deliveryTime;
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $e['esl']);
-                curl_setopt($ch, CURLOPT_POST, 4);
+                curl_setopt($ch, CURLOPT_POST, 6);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_str);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
                 curl_exec($ch);
@@ -65,6 +67,10 @@ class Delivery extends CI_Controller {
             $this->load->view('list_open_requests', $data);
             $this->load->view('templates/footer');
         }
-}
+
+        function delivery_ready()
+        {
+            
+        }
 
 ?>

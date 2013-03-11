@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <body>
    <h2>Welcome <?php echo $username; ?>!</h2><br>
-   ESL: <?php echo $esl ?><br><a href="home/esl">Edit</a><br><br>
+   Deliveries<br><br>
    <br><a href="home/logout">Logout</a>
  </body>
 </html>
