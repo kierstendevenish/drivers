@@ -79,7 +79,7 @@ class Home extends CI_Controller {
     $this->user->saveEsl($username, $esl);
 
     //redirect to home page (need to load all curr esls on home page)
-    redirect('home');
+    redirect('driver/listEsls');
  }
 
 }
