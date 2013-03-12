@@ -62,7 +62,7 @@ Class User extends CI_Model
         function saveEsl($username = '', $esl = '')
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $query = "INSERT INTO Esls VALUES ('" . $username . "','" . $esl . "');";
+            $query = "INSERT INTO Esls (username, esl) VALUES ('" . $username . "','" . $esl . "');";
             $result = $db->query($query);
         }
 
