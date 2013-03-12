@@ -16,8 +16,8 @@
      <label for="phone">Phone Number (for SMS):</label>
      <input type="text" size="11" id="phone" name="phone"/>
      <br/>
-     <label for="esl">ESL (you can set this later if not known):</label>
-     <input type="text" size="200" id="esl" name="esl"/>
+     <label for="rate">Rate:</label>
+     <input type="text" size="200" id="rate" name="rate"/>
      <br/>
      <input type="submit" value="Register"/>
     </form><br><br>
