@@ -17,9 +17,9 @@ class Driver extends CI_Controller {
             $data['username'] = $session_data['username'];
 
             $this->load->model('user');
-            $esls = $this->user->getUserEsls();
+            $data['esls'] = $this->user->getUserEsls();
 
-            $this->load->view('list_esls');
+            $this->load->view('list_esls', $data);
         }
 
 }
