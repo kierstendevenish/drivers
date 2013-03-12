@@ -69,7 +69,7 @@ Class User extends CI_Model
         function getUserEsls($username = '')
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT esl FROM Users WHERE username='".$username."';");
+            $result = $db->query("SELECT esl FROM Esls WHERE username='".$username."';");
 
             return $result;
         }
