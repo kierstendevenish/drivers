@@ -22,4 +22,6 @@ class Driver extends CI_Controller {
             $this->load->view('list_esls');
         }
 
+}
+
 ?>

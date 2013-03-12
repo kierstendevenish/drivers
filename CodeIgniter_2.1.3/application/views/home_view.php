@@ -4,12 +4,6 @@
  <body>
    <h2>Welcome <?php echo $username; ?>!</h2><br>
    <a href='driver/listEsls'>View Esls</a>
-   <a href='home/makeEsl'>Generate a new ESL<a><br><br>
-
-   ESLs:<br>
-   <?php foreach ($esls as $esl):
-            echo $esl['esl']."<br>";
-         endforeach; ?>
    
    <br><a href="home/logout">Logout</a>
  </body>
