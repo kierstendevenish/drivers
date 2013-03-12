@@ -68,9 +68,4 @@ class Delivery extends CI_Controller {
             $this->load->view('templates/footer');
         }
 
-        function delivery_ready()
-        {
-            
-        }
-
 ?>

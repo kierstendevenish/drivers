@@ -3,7 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <body>
    <h2>Welcome <?php echo $username; ?>!</h2><br>
-   Deliveries<br><br>
+   <a href='user/makeEsl'>Generate an ESL<a><br><br>
+
+   ESLs:<br>
+   <?php foreach ($esls as $esl):
+            echo $esl['esl']."<br>";
+         endforeach; ?>
+   
    <br><a href="home/logout">Logout</a>
  </body>
 </html>

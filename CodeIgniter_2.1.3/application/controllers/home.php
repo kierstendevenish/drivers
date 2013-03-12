@@ -14,7 +14,7 @@ class Home extends CI_Controller {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
      $this->load->model('user');
-     $data['esl'] = $this->user->getEsl($data['username']);
+     $data['esls'] = $this->user->getUserEsls($data['username']);
      
      if ($data['username'] === "admin")
      {
@@ -66,6 +66,22 @@ class Home extends CI_Controller {
      $this->user->setEsl($username, $esl);
      
      redirect('home');
+ }
+
+ function makeEsl()
+ {
+    $uid = uniqid();
+    $esl = site_url() . "rfq/" . $uid;
+
+    $session_data = $this->session->userdata('logged_in');
+    $username = $session_data['username'];
+
+    //insert esl into db
+    $this->load->model('user');
+    $this->user->saveEsl($username, $esl);
+
+    //redirect to home page (need to load all curr esls on home page)
+    redirect('home');
  }
 
 }

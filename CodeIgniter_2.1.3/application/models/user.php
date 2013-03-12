@@ -58,5 +58,36 @@ Class User extends CI_Model
                 
                 return $result;
         }
+
+        function saveEsl($username = '', $esl = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $query = "INSERT INTO Esls VALUES ('" . $username . "','" . $esl . "');";
+            $result = $db->query($query);
+        }
+
+        function getUserEsls($username = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT esl FROM Users WHERE username='".$username."';");
+
+            return $result;
+        }
+
+        function getUserByEsl($uid = '')
+        {
+            $esl = site_url() . "rfq/" . $uid;
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT username FROM Users WHERE esl='".$esl."' LIMIT 1;");
+
+            if(count($result) == 1)
+            {
+                return $result[0]['username'];
+            }
+            else
+            {
+		return '';
+            }
+        }
 }
 ?>
