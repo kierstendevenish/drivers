@@ -15,6 +15,7 @@ class Home extends CI_Controller {
      $data['username'] = $session_data['username'];
      $this->load->model('user');
      $data['esls'] = $this->user->getUserEsls($data['username']);
+     var_dump($data['esls']);
      
      if ($data['username'] === "admin")
      {
