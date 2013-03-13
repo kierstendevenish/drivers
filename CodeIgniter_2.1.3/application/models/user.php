@@ -82,13 +82,16 @@ Class User extends CI_Model
             $result = $db->query("SELECT username FROM Esls WHERE esl='".$esl."' LIMIT 1;");
 
             if(count($result) == 1)
-            {
-                return $result[0]['username'];
-            }
-            else
-            {
-		return '';
-            }
+                {
+                    foreach ($result as $row)
+                    {
+                        $username = $row['username'];
+                    }
+
+                    return $username;
+                }
+
+                return '';
         }
 }
 ?>
