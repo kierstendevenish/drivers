@@ -19,11 +19,12 @@ class Register extends CI_Controller {
         {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
+            $name = $this->input->post('name');
             $phone = $this->input->post('phone');
             $rate = $this->input->post('rate');
             
             $this->load->model('user');
-            $this->user->register($username, $password, $phone, $rate);
+            $this->user->register($username, $password, $name, $phone, $rate);
             
             redirect('home');
         }

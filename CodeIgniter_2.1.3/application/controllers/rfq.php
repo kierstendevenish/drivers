@@ -30,7 +30,7 @@ class Rfq extends CI_Controller {
                 //text driver with delivery request
 	}
 
-        function makeBid($fs_esl = '')
+        function makeBid($fs_esl = '', $deliveryTime = '')
         {
             
         }
