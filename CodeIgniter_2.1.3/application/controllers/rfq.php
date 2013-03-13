@@ -12,7 +12,6 @@ class Rfq extends CI_Controller {
             //get user with uid
             $this->load->model('user');
             $user = $this->user->getUserByEsl($uid);
-            var_dump($user);
 
             //get n miles and location from event body
             //if within n miles
@@ -37,6 +36,21 @@ class Rfq extends CI_Controller {
         {
             $this->load->model('request');
             $this->request->makeBid($username, $id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime);
+
+            $this->load->model('user');
+            $name = $this->user->getName($username);
+            $rate = $this->user->getRate($username);
+
+            $estimate = strtotime($deliveryTime) + 1800;
+
+            $fields_str = '_name=bid_available&_domain=rfq&driverName='.$name.'&deliveryId='.$id.'$estDeliveryTime='.$estimate.'&rate='.$rate;
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $fs_esl);
+            curl_setopt($ch, CURLOPT_POST, 6);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_str);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_exec($ch);
+            curl_close($ch);
         }
 }
 

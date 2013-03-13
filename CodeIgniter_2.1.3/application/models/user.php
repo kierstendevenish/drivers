@@ -93,5 +93,41 @@ Class User extends CI_Model
 
                 return '';
         }
+
+        function getName($username = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT name FROM Users WHERE username='".$username."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $name = $row['name'];
+                    }
+
+                    return $name;
+                }
+
+                return '';
+        }
+
+        function getRate($username = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT rate FROM Users WHERE username='".$username."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $rate = $row['rate'];
+                    }
+
+                    return $rate;
+                }
+
+                return '';
+        }
 }
 ?>
