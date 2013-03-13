@@ -26,18 +26,14 @@ class Rfq extends CI_Controller {
                 $longitude = $shopCoords[1];
                 $shopName = $this->input->post('shopName');
                 $shopEsl = $this->input->post('shopEsl');
-                $this->makeBid($id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
+                $this->makeBid($user, $id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
                 //text driver with bid details
             //else
                 //text driver with delivery request
 	}
 
-        function makeBid($id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime)
+        function makeBid($username, $id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime)
         {
-            $session_data = $this->session->userdata('logged_in');
-            $username = $session_data['username'];
-            var_dump($username);
-
             $this->load->model('request');
             $this->request->makeBid($username, $id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime);
         }
