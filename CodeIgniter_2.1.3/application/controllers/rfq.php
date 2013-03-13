@@ -39,5 +39,6 @@ class Rfq extends CI_Controller {
             $this->load->model('request');
             $this->request->makeBid($username, $id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime);
         }
+}
 
 ?>
