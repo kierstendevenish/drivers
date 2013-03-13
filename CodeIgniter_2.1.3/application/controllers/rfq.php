@@ -36,6 +36,7 @@ class Rfq extends CI_Controller {
         {
             $session_data = $this->session->userdata('logged_in');
             $username = $session_data['username'];
+            var_dump($username);
 
             $this->load->model('request');
             $this->request->makeBid($username, $id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime);
