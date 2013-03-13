@@ -26,6 +26,7 @@ class Rfq extends CI_Controller {
                 $longitude = $shopCoords[1];
                 $shopName = $this->input->post('shopName');
                 $shopEsl = $this->input->post('shopEsl');
+                $this->makeBid($id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
                 //text driver with bid details
             //else
                 //text driver with delivery request
