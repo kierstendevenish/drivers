@@ -12,6 +12,7 @@ class Rfq extends CI_Controller {
             //get user with uid
             $this->load->model('user');
             $user = $this->user->getUserByEsl($uid);
+            var_dump($user);
 
             //get n miles and location from event body
             //if within n miles
