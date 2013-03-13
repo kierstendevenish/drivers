@@ -21,7 +21,7 @@ class Rfq extends CI_Controller {
                 $deliveryTime = $this->input->post('deliveryTime');
                 $pickupTime = $this->input->post('pickupTime');
                 $shopCoords = $this->input->post('shopCoords');
-                $shopCoordsArr = split(',', $shopCoords);
+                $shopCoordsArr = explode(',', $shopCoords);
                 $latitude = $shopCoords[0];
                 $longitude = $shopCoords[1];
                 $shopName = $this->input->post('shopName');

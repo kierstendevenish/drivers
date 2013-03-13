@@ -69,7 +69,7 @@ class Home extends CI_Controller {
  function makeEsl()
  {
     $uid = uniqid();
-    $esl = site_url() . "/rfq/" . $uid;
+    $esl = site_url() . "/rfq/index/" . $uid;
 
     $session_data = $this->session->userdata('logged_in');
     $username = $session_data['username'];
