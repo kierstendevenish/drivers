@@ -16,6 +16,7 @@ class Rfq extends CI_Controller {
             //get n miles and location from event body
             //if within n miles
                 //submit bid to flower shop
+                $id = $this->input->post('id');
                 $deliveryAddr = $this->input->post('deliveryAddr');
                 $deliveryTime = $this->input->post('deliveryTime');
                 $pickupTime = $this->input->post('pickupTime');
@@ -30,9 +31,13 @@ class Rfq extends CI_Controller {
                 //text driver with delivery request
 	}
 
-        function makeBid($fs_esl = '', $deliveryTime = '')
+        function makeBid($id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime)
         {
-            
+            $session_data = $this->session->userdata('logged_in');
+            $username = $session_data['username'];
+
+            $this->load->model('request');
+            $this->request->makeBid($username, $id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime);
         }
 
 ?>
