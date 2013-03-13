@@ -76,7 +76,7 @@ Class User extends CI_Model
 
         function getUserByEsl($uid = '')
         {
-            $esl = site_url() . "/rfq/index" . $uid;
+            $esl = site_url() . "/rfq/index/" . $uid;
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT username FROM Users WHERE esl='".$esl."' LIMIT 1;");
 
