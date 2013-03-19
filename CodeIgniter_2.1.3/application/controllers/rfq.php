@@ -43,7 +43,7 @@ class Rfq extends CI_Controller {
 
             $estimate = strtotime($deliveryTime) + 1800;
 
-            $fields_str = '_name=bid_available&_domain=rfq&driverName='.$name.'&deliveryId='.$id.'$estDeliveryTime='.$estimate.'&rate='.$rate;
+            $fields_str = '_name=bid_available&_domain=rfq&driverName='.$name.'&deliveryId='.$id.'&estDeliveryTime='.$estimate.'&rate='.$rate;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $fs_esl);
             curl_setopt($ch, CURLOPT_POST, 6);
