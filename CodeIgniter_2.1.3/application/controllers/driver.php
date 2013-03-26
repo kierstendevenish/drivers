@@ -52,6 +52,8 @@ class Driver extends CI_Controller {
                 curl_setopt($ch, CURLOPT_POST, 6);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_str);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
                 $result = curl_exec($ch);
                 curl_close($ch);
 
@@ -60,7 +62,7 @@ class Driver extends CI_Controller {
 
         function token()
         {
-            
+            var_dump("token");
         }
 
         function updateLocation()
