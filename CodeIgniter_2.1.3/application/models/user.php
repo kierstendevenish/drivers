@@ -168,6 +168,7 @@ Class User extends CI_Model
 
         function getUserByFoursquareId($id = '')
         {
+            log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT username FROM Users WHERE fsId='".$id."';");
 
