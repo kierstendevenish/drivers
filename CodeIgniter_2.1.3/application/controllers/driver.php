@@ -22,6 +22,49 @@ class Driver extends CI_Controller {
             $this->load->view('list_esls', $data);
         }
 
+        function listBids()
+        {
+            //TODO
+        }
+
+        function foursquareAuth()
+        {
+            $session_data = $this->session->userdata('logged_in');
+            $data['username'] = $session_data['username'];
+
+            $fields_str = 'client_id' => 'Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3', 'return_type' = 'code', 'redirect_uri' => 'http://students.cs.byu.edu/~kdevenis/CS...';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, "https://foursquare.com/oauth2/authenticate");
+                curl_setopt($ch, CURLOPT_POST, 6);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_str);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_exec($ch);
+                curl_close($ch);
+        }
+
+        function code()
+        {
+            $code = $this->input->post('code');
+
+            $fields_str = 'client_id' => 'Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3', 'client_secret' => '4LVOFP5XYM3BBBXKLVY4OYTXZGC53ZNE41FB3F0KD0XXX0KF', 'grant_type' => 'authorization_code', 'redirect_uri' => 'https://students.cs.byu.edu/~kdevenis/CS462-driver/drivers/CodeIgniter_2.1.3/index.php/driver/token', 'code' => $code;
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, "https://foursquare.com/oauth2/authenticate");
+                curl_setopt($ch, CURLOPT_POST, 6);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_str);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_exec($ch);
+                curl_close($ch);
+        }
+
+        function token()
+        {
+            
+        }
+
+        function updateLocation()
+        {
+        }
+
 }
 
 ?>
