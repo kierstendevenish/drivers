@@ -103,6 +103,7 @@ class Driver extends CI_Controller {
             $json = $json_decode($checkin, true)
             $latitude = $json['venue']['location']['lat'];
             $longitude = $json['venue']['location']['long'];
+            log_message("info", "checkin");
             log_message("info", $latitude."-".$longitude);
         }
 
