@@ -159,5 +159,29 @@ Class User extends CI_Model
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $db->query("UPDATE Users SET fsId='".$id."' WHERE username='".$username."';");
         }
+
+        function saveLocation($username = '', $lat = 0; $long = 0)
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $db->query("UPDATE Users SET latitude='".$lat."', longitude='".$long."' WHERE username='".$username."';");
+        }
+
+        function getUserByFoursquareId($id = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT username FROM Users WHERE fsId='".$id."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $username = $row['username'];
+                    }
+
+                    return $username;
+                }
+
+                return '';
+        }
 }
 ?>

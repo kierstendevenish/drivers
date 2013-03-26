@@ -102,9 +102,13 @@ class Driver extends CI_Controller {
             log_message("info", "checkin");
             $checkin = $this->input->post('checkin');
             $json = json_decode($checkin, true);
-            $latitude = $json['venue']['location']['lat'];
-            $longitude = $json['venue']['location']['lng'];
-            log_message("info", $latitude."-".$longitude);
+            $foursquareId = $json['user']['id'];
+            $lat = $json['venue']['location']['lat'];
+            $long = $json['venue']['location']['lng'];
+
+            $this->load->model('user');
+            $username = $this->user->getUserByFoursquareId($foursquareId);
+            $this->user->saveLocation($username, $lat, $long);
         }
 
 }
