@@ -108,6 +108,7 @@ class Driver extends CI_Controller {
 
             $this->load->model('user');
             $username = $this->user->getUserByFoursquareId($foursquareId);
+log_message("info", $username);
             $this->user->saveLocation($username, $lat, $long);
         }
 
