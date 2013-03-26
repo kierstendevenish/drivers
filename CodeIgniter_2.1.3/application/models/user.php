@@ -135,5 +135,29 @@ Class User extends CI_Model
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $db->query("UPDATE Users SET fsAccessToken='".$token."' WHERE username='".$username."';");
         }
+
+        function getFoursquareToken($username = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT fsAccessToken FROM Users WHERE username='".$username."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $token = $row['fsAccessToken'];
+                    }
+
+                    return $token;
+                }
+
+                return '';
+        }
+
+        function saveFoursquareId($username = '', $id = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $db->query("UPDATE Users SET fsId='".$id."' WHERE username='".$username."';");
+        }
 }
 ?>
