@@ -45,7 +45,8 @@ class Driver extends CI_Controller {
         function code()
         {
             $code = $this->input->post('code');
-            var_dump("code: " + $code);
+            var_dump("here");
+            var_dump($code);
             $fields_str = "client_id=Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3&client_secret=4LVOFP5XYM3BBBXKLVY4OYTXZGC53ZNE41FB3F0KD0XXX0KF&grant_type=authorization_code&redirect_uri=https://students.cs.byu.edu/~kdevenis/CS462-driver/drivers/CodeIgniter_2.1.3/index.php/driver/token&code=" + $code;
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, "https://foursquare.com/oauth2/access_token");
