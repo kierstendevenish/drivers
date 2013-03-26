@@ -160,7 +160,7 @@ Class User extends CI_Model
             $db->query("UPDATE Users SET fsId='".$id."' WHERE username='".$username."';");
         }
 
-        function saveLocation($username = '', $lat = 0; $long = 0)
+        function saveLocation($username = '', $lat = 0, $long = 0)
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $db->query("UPDATE Users SET latitude='".$lat."', longitude='".$long."' WHERE username='".$username."';");
