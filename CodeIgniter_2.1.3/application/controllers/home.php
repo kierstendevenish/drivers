@@ -9,7 +9,6 @@ class Home extends CI_Controller {
 
  function index()
  {
-    log_message("info", "test");
    if($this->session->userdata('logged_in'))
    {
      $session_data = $this->session->userdata('logged_in');
