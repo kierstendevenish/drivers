@@ -69,6 +69,8 @@ class Driver extends CI_Controller {
                 $session_data = $this->session->userdata('logged_in');
                 $username = $session_data['username'];
                 $this->user->saveFoursquareToken($username, $token);
+
+                $this->load->view('foursquare_success');
         }
 
         function token()
