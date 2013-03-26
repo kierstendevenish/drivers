@@ -80,7 +80,7 @@ class Driver extends CI_Controller {
 
         function updateLocation()
         {
-            $this->input->post('checkin');
+            $checkin = $this->input->post('checkin');
             log_message("info", $checkin');
         }
 
