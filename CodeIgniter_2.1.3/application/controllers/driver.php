@@ -70,6 +70,12 @@ class Driver extends CI_Controller {
                 $username = $session_data['username'];
                 $this->user->saveFoursquareToken($username, $token);
 
+                $url = "https://api.foursquare.com/v2/users/self/?oauth_token=".$token;
+                $json = file_get_contents($url);
+                $result = json_decode($json, true);
+                $userId = $result['response']['user']['id'];
+                $this->user->saveFoursquareId($username, $userId);
+
                 $this->load->view('foursquare_success');
         }
 
