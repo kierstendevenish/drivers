@@ -32,7 +32,7 @@ class Driver extends CI_Controller {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
 
-            $fields_str = 'client_id' => 'Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3', 'return_type' = 'code', 'redirect_uri' => 'http://students.cs.byu.edu/~kdevenis/CS...';
+            $fields_str = 'client_id' => 'Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3', 'return_type' = 'code', 'redirect_uri' => 'https://students.cs.byu.edu/~kdevenis/CS462-driver/drivers/CodeIgniter_2.1.3/index.php/driver/code';
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, "https://foursquare.com/oauth2/authenticate");
                 curl_setopt($ch, CURLOPT_POST, 6);
@@ -52,8 +52,10 @@ class Driver extends CI_Controller {
                 curl_setopt($ch, CURLOPT_POST, 6);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_str);
                 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                curl_exec($ch);
+                $result = curl_exec($ch);
                 curl_close($ch);
+
+                var_dump($result);
         }
 
         function token()
