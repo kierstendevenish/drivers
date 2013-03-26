@@ -58,7 +58,7 @@ class Driver extends CI_Controller {
 
                 $json = json_decode($result, true);
                 $token = $json['access_token'];
-                var_dump($json);
+                var_dump($result);
 
                 $this->load->model('user');
                 $session_data = $this->session->userdata('logged_in');
