@@ -29,9 +29,6 @@ class Driver extends CI_Controller {
 
         function foursquareAuth()
         {
-            $session_data = $this->session->userdata('logged_in');
-            $data['username'] = $session_data['username'];
-
             $fields_str = "client_id=Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3&return_type=code&redirect_uri=https://students.cs.byu.edu/~kdevenis/CS462-driver/drivers/CodeIgniter_2.1.3/index.php/driver/code";
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, "https://foursquare.com/oauth2/authenticate");
@@ -59,7 +56,11 @@ class Driver extends CI_Controller {
 
                 $json = json_decode($result, true);
                 $token = $json['access_token'];
-                var_dump($token);
+
+                $this->load->model('user');
+                $session_data = $this->session->userdata('logged_in');
+                $username = $session_data['username'];
+                $this->user->saveFoursquareToken($username, $token);
         }
 
         function token()

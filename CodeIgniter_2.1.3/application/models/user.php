@@ -129,5 +129,11 @@ Class User extends CI_Model
 
                 return '';
         }
+
+        function saveFoursquareToken($username = '', $token = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $db->query("UPDATE Users SET fsAccessToken='".$token."' WHERE username='".$username."';");
+        }
 }
 ?>
