@@ -64,7 +64,6 @@ class Driver extends CI_Controller {
                 $json = file_get_contents($url);
                 $result = json_decode($json, true);
                 $token = $result['access_token'];
-                var_dump($token);
 
                 $this->load->model('user');
                 $session_data = $this->session->userdata('logged_in');
@@ -74,7 +73,7 @@ class Driver extends CI_Controller {
 
         function token()
         {
-            
+            $this->load->view('foursquare_success');
         }
 
         function updateLocation()
