@@ -65,7 +65,7 @@ class Driver extends CI_Controller {
 
         function token()
         {
-            var_dump("token");
+            
         }
 
         function updateLocation()
