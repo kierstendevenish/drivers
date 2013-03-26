@@ -82,6 +82,7 @@ class Driver extends CI_Controller {
         {
             $checkin = $this->input->post('checkin');
             log_message("info", 'got checkin');
+            log_message("info", $checkin);
         }
 
 }
