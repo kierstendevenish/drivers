@@ -99,11 +99,11 @@ class Driver extends CI_Controller {
 
         function updateLocation()
         {
+            log_message("info", "checkin");
             $checkin = $this->input->post('checkin');
             $json = $json_decode($checkin, true)
             $latitude = $json['venue']['location']['lat'];
             $longitude = $json['venue']['location']['long'];
-            log_message("info", "checkin");
             log_message("info", $latitude."-".$longitude);
         }
 
