@@ -57,7 +57,7 @@ class Driver extends CI_Controller {
                 $result = curl_exec($ch);
                 curl_close($ch);
 
-                $json = $json_decode($result, true);
+                $json = json_decode($result, true);
                 $token = $json['access_token'];
                 var_dump($token);
         }
