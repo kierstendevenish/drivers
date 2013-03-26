@@ -47,7 +47,6 @@ class Driver extends CI_Controller {
             $code = $_GET['code'];
 
             $fields_str = "client_id=Y4XZ44AUGUG031Q0A0Y0LVYIJA2IFU4XMAYZ4QGTJIOSL2I3&client_secret=4LVOFP5XYM3BBBXKLVY4OYTXZGC53ZNE41FB3F0KD0XXX0KF&grant_type=authorization_code&redirect_uri=https://students.cs.byu.edu/~kdevenis/CS462-driver/drivers/CodeIgniter_2.1.3/index.php/driver/token&code=".$code;
-            var_dump($fields_str);
             $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, "https://foursquare.com/oauth2/access_token");
                 curl_setopt($ch, CURLOPT_POST, 5);
@@ -58,7 +57,9 @@ class Driver extends CI_Controller {
                 $result = curl_exec($ch);
                 curl_close($ch);
 
-                var_dump($result);
+                $json = $json_decode($result, true);
+                $token = $json['access_token'];
+                var_dump($token);
         }
 
         function token()
