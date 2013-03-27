@@ -21,9 +21,9 @@ Class Request extends CI_Model
             $result = $db->query("INSERT INTO Bids VALUES ('" . $username . "','" . $fs_esl . "','" . $id . "','" . $deliveryAddr . "','" . $deliveryTime . "','" . $pickupTime . "', 0, 0);");
         }
 
-        function calcDistance(startLat, startLong, endLat, endLong)
+        function calcDistance($startLat, $startLong, $endLat, $endLong)
         {
-            return sqrt(pow((endLat - startLat), 2) + pow((endLong - startLong), 2));
+            return sqrt(pow(($endLat - $startLat), 2) + pow(($endLong - $startLong), 2));
         }
 }
 ?>
