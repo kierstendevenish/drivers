@@ -176,7 +176,7 @@ Class User extends CI_Model
                     foreach ($result as $row)
                     {
                         $loc['lat'] = $row['latitude'];
-                        $loc['long'] = $row['longitude']
+                        $loc['long'] = $row['longitude'];
                     }
 
                     return $loc;
