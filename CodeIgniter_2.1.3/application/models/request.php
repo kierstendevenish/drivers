@@ -20,5 +20,10 @@ Class Request extends CI_Model
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("INSERT INTO Bids VALUES ('" . $username . "','" . $fs_esl . "','" . $id . "','" . $deliveryAddr . "','" . $deliveryTime . "','" . $pickupTime . "', 0, 0);");
         }
+
+        function calcDistance(startLat, startLong, endLat, endLong)
+        {
+            return sqrt(pow((endLat - startLat), 2) + pow((endLong - startLong), 2));
+        }
 }
 ?>

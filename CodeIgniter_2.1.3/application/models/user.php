@@ -166,6 +166,25 @@ Class User extends CI_Model
             $db->query("UPDATE Users SET latitude='".$lat."', longitude='".$long."' WHERE username='".$username."';");
         }
 
+        function getLocation($username = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $db->query("SELECT latitude, longitude FROM username='".$username."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $loc['lat'] = $row['latitude'];
+                        $loc['long'] = $row['longitude']
+                    }
+
+                    return $loc;
+                }
+
+                return '';
+        }
+
         function getUserByFoursquareId($id = '')
         {
             log_message("info", $id);
