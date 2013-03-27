@@ -169,7 +169,7 @@ Class User extends CI_Model
         function getLocation($username = '')
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $db->query("SELECT latitude, longitude FROM username='".$username."';");
+            $result = $db->query("SELECT latitude, longitude FROM username='".$username."';");
 
             if(count($result) == 1)
                 {
