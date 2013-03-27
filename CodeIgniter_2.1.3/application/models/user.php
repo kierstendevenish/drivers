@@ -171,6 +171,7 @@ Class User extends CI_Model
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT latitude, longitude FROM username='".$username."';");
 
+            $loc = array();
             if(count($result) == 1)
                 {
                     foreach ($result as $row)
