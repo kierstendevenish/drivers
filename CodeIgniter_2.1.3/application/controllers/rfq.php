@@ -23,7 +23,7 @@ class Rfq extends CI_Controller {
             $longitude = $shopCoords[1];
             $this->load->model('request');
             $distance = $this->request->calcDistance($latitude, $longitude, $loc['lat'], $loc['long']);
-            var_dump($distance);
+            var_dump("dist=" . $distance);
             if ($distance < 0.5)
             {
                 //submit bid to flower shop
