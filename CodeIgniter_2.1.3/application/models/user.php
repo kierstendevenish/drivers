@@ -174,14 +174,13 @@ Class User extends CI_Model
             $loc = array();
             if(count($result) == 1)
                 {
-                    var_dump($result);
-                    /*foreach ($result as $row)
+                    foreach ($result as $row)
                     {
                         $loc['lat'] = $row['latitude'];
                         $loc['long'] = $row['longitude'];
                     }
 
-                    return $loc;*/
+                    return $loc;
                 }
 
                 return '';
