@@ -23,6 +23,8 @@ Class Request extends CI_Model
 
         function calcDistance($startLat, $startLong, $endLat, $endLong)
         {
+            var_dump($startLat . "-" . $startLong);
+            var_dump($endLat . "-" . $endLong);
             return sqrt(pow(($endLat - $startLat), 2) + pow(($endLong - $startLong), 2));
         }
 }
