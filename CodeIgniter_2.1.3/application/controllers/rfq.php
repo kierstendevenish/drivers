@@ -18,6 +18,7 @@ class Rfq extends CI_Controller {
 
             //if within n miles (for this purpose, half a point)
             $shopCoords = $this->input->post('shopCoords');
+            var_dump($shopCoords);
             $shopCoordsArr = explode(',', $shopCoords);
             $latitude = $shopCoords[0];
             $longitude = $shopCoords[1];
