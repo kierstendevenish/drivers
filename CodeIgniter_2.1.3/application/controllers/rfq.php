@@ -15,6 +15,7 @@ class Rfq extends CI_Controller {
 
             //get n miles and location from event body
             $loc = $this->user->getLocation($user);
+            var_dump($loc);
             //if within n miles (for this purpose, half a point)
             $shopCoords = $this->input->post('shopCoords');
             $shopCoordsArr = explode(',', $shopCoords);
