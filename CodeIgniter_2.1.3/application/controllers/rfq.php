@@ -20,8 +20,8 @@ class Rfq extends CI_Controller {
             $shopCoords = $this->input->post('shopCoords');
             $shopCoordsArr = explode(',', $shopCoords);
             var_dump($shopCoordsArr);
-            $latitude = $shopCoords[0];
-            $longitude = $shopCoords[1];
+            $latitude = $shopCoordsArr[0];
+            $longitude = $shopCoordsArr[1];
             $this->load->model('request');
             $distance = $this->request->calcDistance($latitude, $longitude, $loc['lat'], $loc['long']);
             var_dump("dist=" . $distance);
