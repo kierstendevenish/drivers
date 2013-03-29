@@ -15,7 +15,7 @@ class Rfq extends CI_Controller {
 
             //get n miles and location from event body
             $loc = $this->user->getLocation($user);
-            var_dump($loc);
+
             //if within n miles (for this purpose, half a point)
             $shopCoords = $this->input->post('shopCoords');
             $shopCoordsArr = explode(',', $shopCoords);
@@ -23,6 +23,7 @@ class Rfq extends CI_Controller {
             $longitude = $shopCoords[1];
             $this->load->model('request');
             $distance = $this->request->calcDistance($latitude, $longitude, $loc['lat'], $loc['long']);
+            var_dump($distance);
             if ($distance < 0.5)
             {
                 //submit bid to flower shop
