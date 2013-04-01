@@ -36,6 +36,7 @@ class Rfq extends CI_Controller {
                 $shopEsl = $this->input->post('shopEsl');
                 $this->makeBid($user, $id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
                 //text driver with bid details
+
             }
             else
             {
@@ -54,6 +55,7 @@ class Rfq extends CI_Controller {
 
             $estimate = strtotime($deliveryTime) + 1800;
 
+            //send bid to flowershop
             $fields_str = '_name=bid_available&_domain=rfq&driverName='.$name.'&deliveryId='.$id.'&estDeliveryTime='.$estimate.'&rate='.$rate;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $fs_esl);
@@ -62,6 +64,11 @@ class Rfq extends CI_Controller {
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             curl_exec($ch);
             curl_close($ch);
+
+            //text driver with bid details
+            $bidDetails = $name . ", you have made a bid for delivery " . $id . ".\nPickup: " . $pickupTime . "\nAddress: " . $deliveryAddr . "\nDelivery Time: " . $deliveryTime;
+            $this->load->library('twilio');
+            $this->twilio->sms(18016573680, 18016806793, $bidDetails);
         }
 }
 
