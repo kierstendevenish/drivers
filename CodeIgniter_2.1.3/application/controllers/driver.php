@@ -31,7 +31,6 @@ class Driver extends CI_Controller {
 
             $this->load->model('user');
             $data['bids'] = $this->user->getUserBids($data['username']);
-            var_dump($data['bids']);
 
             $this->load->view('templates/header');
             $this->load->view('list_bids', $data);
