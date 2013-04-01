@@ -25,15 +25,17 @@ class Rfq extends CI_Controller {
             $this->load->model('request');
             $distance = $this->request->calcDistance($latitude, $longitude, $loc['lat'], $loc['long']);
             var_dump("dist=" . $distance);
+
+            $id = $this->input->post('id');
+            $deliveryAddr = $this->input->post('deliveryAddr');
+            $deliveryTime = $this->input->post('deliveryTime');
+            $pickupTime = $this->input->post('pickupTime');
+            $shopName = $this->input->post('shopName');
+            $shopEsl = $this->input->post('shopEsl');
+
             if ($distance < 0.5)
             {
                 //submit bid to flower shop
-                $id = $this->input->post('id');
-                $deliveryAddr = $this->input->post('deliveryAddr');
-                $deliveryTime = $this->input->post('deliveryTime');
-                $pickupTime = $this->input->post('pickupTime');
-                $shopName = $this->input->post('shopName');
-                $shopEsl = $this->input->post('shopEsl');
                 $this->makeBid($user, $id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
             }
             else
