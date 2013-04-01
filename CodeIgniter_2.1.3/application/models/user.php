@@ -208,7 +208,7 @@ Class User extends CI_Model
         function getUserBids($username = '')
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT esl FROM Bids WHERE username='".$username."';");
+            $result = $db->query("SELECT * FROM Bids WHERE username='".$username."';");
 
             return $result;
         }
