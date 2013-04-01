@@ -19,7 +19,9 @@ class Driver extends CI_Controller {
             $this->load->model('user');
             $data['esls'] = $this->user->getUserEsls($data['username']);
 
+            $this->load->view('templates/header');
             $this->load->view('list_esls', $data);
+            $this->load->view('templates/footer');
         }
 
         function listBids()
@@ -27,14 +29,13 @@ class Driver extends CI_Controller {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
 
-            $this->load->library('twilio');
-            $this->twilio->sms(18016573680, 18016806793, "Test bid");
-
             $this->load->model('user');
             $data['bids'] = $this->user->getUserBids($data['username']);
             var_dump($data['bids']);
 
+            $this->load->view('templates/header');
             $this->load->view('list_bids', $data);
+            $this->load->view('templates/footer');
         }
 
         function foursquareAuth()

@@ -14,10 +14,9 @@
            <th>Delivery Time</th>
        </tr>
    <?php if (count($bids) > 0):
-        echo $bids;
-        /*foreach ($bids as $bid):
+        foreach ($bids as $bid):
             echo "<tr><td>" . $bid['fs_esl'] . "</td><td>" . $bid['delivery_id'] . "</td><td>" . $bid['pickupTime'] . "</td><td>".$bid['deliveryAddr']."</td><td>".$bid['deliveryTime']."</td></tr>";
-        endforeach;*/
+        endforeach;
    endif; ?>
    </table>
  </body>
