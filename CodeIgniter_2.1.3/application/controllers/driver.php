@@ -27,6 +27,9 @@ class Driver extends CI_Controller {
             $session_data = $this->session->userdata('logged_in');
             $data['username'] = $session_data['username'];
 
+            $this->load->library('twilio');
+            $this->twilio->sms(18016573680, 18016806793, "Test bid");
+
             $this->load->model('user');
             $data['bids'] = $this->user->getUserBids($data['username']);
 
