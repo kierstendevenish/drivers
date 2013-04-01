@@ -24,7 +24,13 @@ class Driver extends CI_Controller {
 
         function listBids()
         {
-            //TODO
+            $session_data = $this->session->userdata('logged_in');
+            $data['username'] = $session_data['username'];
+
+            $this->load->model('user');
+            $data['bids'] = $this->user->getUserBids($data['username']);
+
+            $this->load->view('list_bids', $data);
         }
 
         function foursquareAuth()

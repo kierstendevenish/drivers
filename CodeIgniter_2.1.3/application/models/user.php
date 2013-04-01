@@ -204,5 +204,13 @@ Class User extends CI_Model
 
                 return '';
         }
+
+        function getUserBids($username = '')
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT esl FROM Bids WHERE username='".$username."';");
+
+            return $result;
+        }
 }
 ?>
