@@ -35,12 +35,13 @@ class Rfq extends CI_Controller {
                 $shopName = $this->input->post('shopName');
                 $shopEsl = $this->input->post('shopEsl');
                 $this->makeBid($user, $id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
-                //text driver with bid details
-
             }
             else
             {
                 //text driver with delivery request
+                $details = "Delivery request. P: " . $pickupTime . "A: " . $deliveryAddr . "D: " . $deliveryTime;
+                $this->load->library('twilio');
+                $this->twilio->sms(18016573680, 18016806793, $details);
             }
 	}
 
@@ -66,7 +67,7 @@ class Rfq extends CI_Controller {
             curl_close($ch);
 
             //text driver with bid details
-            $bidDetails = $name . ", you have made a bid for delivery " . $id . ". Pickup at " . $pickupTime . " and deliver to " . $deliveryAddr;// . " at " . $deliveryTime . ".";
+            $bidDetails = $name . ", you have made a bid for delivery " . $id . ". If accepted, pickup at " . $pickupTime . ".";
             $this->load->library('twilio');
             $this->twilio->sms(18016573680, 18016806793, $bidDetails);
         }
