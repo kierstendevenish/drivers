@@ -66,9 +66,9 @@ class Rfq extends CI_Controller {
             curl_close($ch);
 
             //text driver with bid details
-            $bidDetails = $name . ", you have made a bid for delivery " . $id . ".\nPickup: " . $pickupTime . "\nAddress: " . $deliveryAddr . "\nDelivery Time: " . $deliveryTime;
+            $bidDetails = $name . ", you have made a bid for delivery " . $id;// . ".\nPickup: " . $pickupTime . "\nAddress: " . $deliveryAddr . "\nDelivery Time: " . $deliveryTime;
             $this->load->library('twilio');
-            $this->twilio->sms(18016573680, 18016806793, "test2");
+            $this->twilio->sms(18016573680, 18016806793, $bidDetails);
         }
 }
 
