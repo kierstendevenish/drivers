@@ -41,7 +41,7 @@ class Rfq extends CI_Controller {
             else
             {
                 //text driver with delivery request
-                $details = "Delivery request. P: " . $pickupTime . "A: " . $deliveryAddr . "D: " . $deliveryTime;
+                $details = "Delivery request. P: " . $pickupTime . " A: " . $deliveryAddr . " D: " . $deliveryTime;
                 $this->load->library('twilio');
                 $this->twilio->sms(18016573680, 18016806793, $details);
             }
@@ -72,6 +72,13 @@ class Rfq extends CI_Controller {
             $bidDetails = $name . ", you have made a bid for delivery " . $id . ". If accepted, pickup at " . $pickupTime . ".";
             $this->load->library('twilio');
             $this->twilio->sms(18016573680, 18016806793, $bidDetails);
+        }
+
+        function smsReply()
+        {
+            log_message("info", "got text");
+
+            $this->load->view('sms');
         }
 }
 
