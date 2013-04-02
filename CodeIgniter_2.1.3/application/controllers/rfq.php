@@ -77,7 +77,8 @@ class Rfq extends CI_Controller {
         function smsReply()
         {
             log_message("info", "got text");
-            log_message("info", $this->input->post());
+            log_message("info", $this->input->post('from'));
+            log_message("info", $this->input->post('message'));
 
             $this->load->view('sms');
         }
