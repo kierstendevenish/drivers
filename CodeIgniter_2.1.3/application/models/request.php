@@ -29,7 +29,7 @@ Class Request extends CI_Model
         function getReqDeliveryId()
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryId';");
+            $result = $db->query("SELECT dataValue FROM appDataString WHERE dataKey='deliveryId';");
 
             if(count($result) == 1)
                 {
@@ -47,7 +47,7 @@ Class Request extends CI_Model
         function getReqShopEsl()
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='fs_esl';");
+            $result = $db->query("SELECT dataValue FROM appDataString WHERE dataKey='fs_esl';");
 
             if(count($result) == 1)
                 {
@@ -65,7 +65,7 @@ Class Request extends CI_Model
         function getReqDeliveryTime()
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryTime';");
+            $result = $db->query("SELECT dataValue FROM appDataString WHERE dataKey='deliveryTime';");
 
             if(count($result) == 1)
                 {
@@ -83,7 +83,7 @@ Class Request extends CI_Model
         function getReqDeliveryAddr()
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryAddr';");
+            $result = $db->query("SELECT dataValue FROM appDataString WHERE dataKey='deliveryAddr';");
 
             if(count($result) == 1)
                 {
@@ -101,7 +101,7 @@ Class Request extends CI_Model
         function getReqPickupTime()
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='pickupTime';");
+            $result = $db->query("SELECT dataValue FROM appDataString WHERE dataKey='pickupTime';");
 
             if(count($result) == 1)
                 {
