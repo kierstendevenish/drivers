@@ -40,7 +40,7 @@ class Rfq extends CI_Controller {
             }
             else
             {
-                $this->user->saveRequest();
+                $this->user->saveRequest($id, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
 
                 //text driver with delivery request
                 $details = "Delivery request. P: " . $pickupTime . " A: " . $deliveryAddr . " D: " . $deliveryTime;
