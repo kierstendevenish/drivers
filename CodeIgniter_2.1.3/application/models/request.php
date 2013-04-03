@@ -30,7 +30,7 @@ Class Request extends CI_Model
         {
             log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$deliveryId."';");
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryId';");
 
             if(count($result) == 1)
                 {
@@ -49,7 +49,7 @@ Class Request extends CI_Model
         {
             log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$fs_esl."';");
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='fs_esl';");
 
             if(count($result) == 1)
                 {
@@ -68,7 +68,7 @@ Class Request extends CI_Model
         {
             log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$deliveryTime."';");
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryTime';");
 
             if(count($result) == 1)
                 {
@@ -87,7 +87,7 @@ Class Request extends CI_Model
         {
             log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$deliveryAddr."';");
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryAddr';");
 
             if(count($result) == 1)
                 {
@@ -106,7 +106,7 @@ Class Request extends CI_Model
         {
             log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$pickupTime."';");
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='pickupTime';");
 
             if(count($result) == 1)
                 {
