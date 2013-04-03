@@ -28,7 +28,6 @@ Class Request extends CI_Model
 
         function getReqDeliveryId()
         {
-            log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryId';");
 
@@ -47,7 +46,6 @@ Class Request extends CI_Model
 
         function getReqShopEsl()
         {
-            log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='fs_esl';");
 
@@ -66,7 +64,6 @@ Class Request extends CI_Model
 
         function getReqDeliveryTime()
         {
-            log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryTime';");
 
@@ -85,7 +82,6 @@ Class Request extends CI_Model
 
         function getReqDeliveryAddr()
         {
-            log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='deliveryAddr';");
 
@@ -104,7 +100,6 @@ Class Request extends CI_Model
 
         function getReqPickupTime()
         {
-            log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
             $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='pickupTime';");
 
