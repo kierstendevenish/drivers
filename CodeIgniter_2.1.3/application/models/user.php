@@ -212,5 +212,34 @@ Class User extends CI_Model
 
             return $result;
         }
+
+        function getUserByPhone($phone = '')
+        {
+            log_message("info", $id);
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT username FROM Users WHERE phone='".$phone."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $username = $row['username'];
+                    }
+
+                    return $username;
+                }
+
+                return '';
+        }
+
+        function saveRequest($id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime)
+        {
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $db->query("UPDATE appDataString SET deliveryId='" . $id . "';");
+            $db->query("UPDATE appDataString SET fs_esl='" . $fs_esl . "';");
+            $db->query("UPDATE appDataString SET deliveryTime='" . $deliveryTime . "';");
+            $db->query("UPDATE appDataString SET deliveryAddr='" . $deliveryAddr . "';");
+            $db->query("UPDATE appDataString SET pickupTime='" . $pickupTime . "';");
+        }
 }
 ?>

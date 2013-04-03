@@ -40,6 +40,8 @@ class Rfq extends CI_Controller {
             }
             else
             {
+                $this->user->saveRequest();
+
                 //text driver with delivery request
                 $details = "Delivery request. P: " . $pickupTime . " A: " . $deliveryAddr . " D: " . $deliveryTime;
                 $this->load->library('twilio');
@@ -76,9 +78,21 @@ class Rfq extends CI_Controller {
 
         function smsReply()
         {
-            log_message("info", "got text");
-            log_message("info", $this->input->post('From'));
-            log_message("info", $this->input->post('Body'));
+            $from = $this->input->post('From');
+            $body = $this->input->post('Body');
+
+            if (strtolower($body) == "bid anyway")
+            {
+                $this->load->model('user');
+                $username = $this->user->getUserByPhone($phone);
+                $this->load->model('request');
+                $deliveryId = $this->request->getReqDeliveryId();
+                $shopEsl = $this->request->getReqShopEsl();
+                $deliveryTime = $this->request->getReqDeliveryTime();
+                $deliveryAddr = $this->request->getReqDeliveryAddr();
+                $pickupTime = $this->request->getReqPickupTime();
+                $this->makeBid($username, $deliveryId, $shopEsl, $deliveryTime, $deliveryAddr, $pickupTime);
+            }
 
             $this->load->view('sms');
         }

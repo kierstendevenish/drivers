@@ -25,5 +25,100 @@ Class Request extends CI_Model
         {
             return sqrt(pow(($endLat - $startLat), 2) + pow(($endLong - $startLong), 2));
         }
+
+        function getReqDeliveryId()
+        {
+            log_message("info", $id);
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$deliveryId."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $data = $row['dataValue'];
+                    }
+
+                    return $data;
+                }
+
+                return '';
+        }
+
+        function getReqShopEsl()
+        {
+            log_message("info", $id);
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$fs_esl."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $data = $row['dataValue'];
+                    }
+
+                    return $data;
+                }
+
+                return '';
+        }
+
+        function getReqDeliveryTime()
+        {
+            log_message("info", $id);
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$deliveryTime."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $data = $row['dataValue'];
+                    }
+
+                    return $data;
+                }
+
+                return '';
+        }
+
+        function getReqDeliveryAddr()
+        {
+            log_message("info", $id);
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$deliveryAddr."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $data = $row['dataValue'];
+                    }
+
+                    return $data;
+                }
+
+                return '';
+        }
+
+        function getReqPickupTime()
+        {
+            log_message("info", $id);
+            $db = new PDO('sqlite:./application/db/deliveryDrivers');
+            $result = $db->query("SELECT dataValue FROM Users WHERE dataKey='".$pickupTime."';");
+
+            if(count($result) == 1)
+                {
+                    foreach ($result as $row)
+                    {
+                        $data = $row['dataValue'];
+                    }
+
+                    return $data;
+                }
+
+                return '';
+        }
 }
 ?>
