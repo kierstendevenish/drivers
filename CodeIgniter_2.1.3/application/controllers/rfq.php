@@ -84,7 +84,7 @@ class Rfq extends CI_Controller {
             if (strtolower($body) == "bid anyway")
             {
                 $this->load->model('user');
-                $username = $this->user->getUserByPhone($phone);
+                $username = $this->user->getUserByPhone(str_replace('+', '', $from));
                 $this->load->model('request');
                 $deliveryId = $this->request->getReqDeliveryId();
                 $shopEsl = $this->request->getReqShopEsl();

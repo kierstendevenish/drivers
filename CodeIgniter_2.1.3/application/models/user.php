@@ -217,7 +217,7 @@ Class User extends CI_Model
         {
             log_message("info", $id);
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $result = $db->query("SELECT username FROM Users WHERE phone='".$phone."';");
+            $result = $db->query("SELECT username FROM Users WHERE phone=".$phone.";");
 
             if(count($result) == 1)
                 {
