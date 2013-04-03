@@ -235,11 +235,11 @@ Class User extends CI_Model
         function saveRequest($id, $fs_esl, $deliveryTime, $deliveryAddr, $pickupTime)
         {
             $db = new PDO('sqlite:./application/db/deliveryDrivers');
-            $db->query("UPDATE appDataString SET deliveryId='" . $id . "';");
-            $db->query("UPDATE appDataString SET fs_esl='" . $fs_esl . "';");
-            $db->query("UPDATE appDataString SET deliveryTime='" . $deliveryTime . "';");
-            $db->query("UPDATE appDataString SET deliveryAddr='" . $deliveryAddr . "';");
-            $db->query("UPDATE appDataString SET pickupTime='" . $pickupTime . "';");
+            $db->query("UPDATE appDataString SET dataValue='" . $id . "' WHERE dataKey='deliveryId';");
+            $db->query("UPDATE appDataString SET dataValue='" . $fs_esl . "' WHERE dataKey='fs_esl';");
+            $db->query("UPDATE appDataString SET dataValue='" . $deliveryTime . "' WHERE dataKey='deliveryTime';");
+            $db->query("UPDATE appDataString SET dataValue='" . $deliveryAddr . "' WHERE dataKey='deliveryAddr';");
+            $db->query("UPDATE appDataString SET dataValue='" . $pickupTime . "' WHERE dataKey='pickupTime';");
         }
 }
 ?>
