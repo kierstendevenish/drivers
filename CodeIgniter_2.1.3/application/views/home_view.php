@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <body>
    <h2>Welcome <?php echo $username; ?>!</h2><br>
+   You last checked in at: <?php echo $lat . ", " . $long; ?>
    <a href='driver/foursquareAuth' target='_blank'>Connect with Foursquare</a><br>
    <a href='driver/listEsls'>View Esls</a><br>
    <a href='driver/listBids'>Bid History</a><br>
