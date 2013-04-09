@@ -24,7 +24,6 @@ class Rfq extends CI_Controller {
             $longitude = $shopCoordsArr[1];
             $this->load->model('request');
             $distance = $this->request->calcDistance($latitude, $longitude, $loc['lat'], $loc['long']);
-            var_dump("dist=" . $distance);
 
             $id = $this->input->post('id');
             $deliveryAddr = $this->input->post('deliveryAddr');
